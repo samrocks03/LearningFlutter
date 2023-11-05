@@ -21,8 +21,7 @@ Stateless widgets :  immutable, meaning they cannot change during runtime.
 Stateful widgets : on the other hand, can change during runtime. When the state of a widget changes, the widget is rebuilt to reflect the new state.
 */
 class MyApp extends StatelessWidget {
-  
-  const MyApp({ super.key });
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
