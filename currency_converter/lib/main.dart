@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 
 void main() {
   // runApp(// const Text("Hello!!!", textDirection: TextDirection.rtl),);
-  runApp(const MyApp());
+  runApp(const MyApp(),
+  );
 }
 
 // Types of widgets:
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const CupertinoApp(
+      debugShowCheckedModeBanner: false,
       home: CurrencyConverterMaterialPage(),
     );
   }
