@@ -5,39 +5,56 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: ColoredBox(
-        color: Color.fromRGBO(255, 0, 255, 0.18),
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF74B9FF), Color(0xFF55E3B0)], // Gradient colors
+          ),
+        ),
         child: Center(
           child: Column(
-              mainAxisAlignment:
-                  MainAxisAlignment.center, //Align the main axis to center
-              children: [
-                Text(
-                  "Helu Bru",
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(240, 3, 33, 37),
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                "Currency Converter",
+                style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black, // Changed text color to black
+                ),
+              ),
+              const SizedBox(height: 20),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: const TextField(
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    hintText: "Enter the amount in USD",
+                    hintStyle: TextStyle(color: Colors.grey),
+                    icon: Icon(Icons.attach_money_sharp, color: Color(0xFF74B9FF)),
+                    border: InputBorder.none,
                   ),
                 ),
-
-                Padding(
-                  padding: EdgeInsets.only(right: 14.0),
-                  child: TextField(
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      label: Text("Enter the amount in USD!"),
-                      icon: Padding(
-                        padding: EdgeInsets.only(left: 14.0),
-                        child: Icon(Icons.attach_money_sharp),
-                      ),
-                      // labelText: 'Enter your Email',
-                    ),
-                  ),
-                )
-              ]),
+              ),
+            ],
+          ),
+        ),
       ),
-    ));
+    );
   }
 }
