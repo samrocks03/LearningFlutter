@@ -22,13 +22,14 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                 "Currency Converter",
                 style: TextStyle(
                   fontSize: 36,
+
                   fontWeight: FontWeight.bold,
-                  color: Colors.black, // Changed text color to black
+                  color: Colors.deepPurpleAccent, // Changed text color to black
                 ),
               ),
               const SizedBox(height: 20),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                // padding: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
@@ -46,7 +47,7 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                   decoration: InputDecoration(
                     hintText: "Enter the amount in USD",
                     hintStyle: TextStyle(color: Colors.grey),
-                    icon: Icon(Icons.attach_money_sharp, color: Color(0xFF74B9FF)),
+                    prefixIcon: Icon(Icons.attach_money_sharp, color: Color(0xFF74B9FF)),
                     border: InputBorder.none,
                   ),
                 ),
