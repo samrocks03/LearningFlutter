@@ -15,7 +15,7 @@ void main() {
   - Inherited
  */
 
-/*
+/*  
 State : state refers to the data that can change in a widget. 
 Stateless widgets :  immutable, meaning they cannot change during runtime. 
 Stateful widgets : on the other hand, can change during runtime. When the state of a widget changes, the widget is rebuilt to reflect the new state.
