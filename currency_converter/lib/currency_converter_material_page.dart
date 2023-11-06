@@ -7,6 +7,7 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(0, 66, 66, 171),
+      // backgroundColor: MaterialAccentColor(700),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -15,7 +16,6 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
               "Currency Converter",
               style: TextStyle(
                 fontSize: 36,
-
                 fontWeight: FontWeight.bold,
                 color: Colors.deepPurpleAccent, // Changed text color to black
               ),
@@ -36,10 +36,14 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                 ],
               ),
               child: const TextField(
+                style: TextStyle(color: Colors.white,
+                fontStyle:FontStyle.italic
+                ),
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   hintText: "Enter the amount in USD",
                   hintStyle: TextStyle(color: Colors.grey),
+                  
                   prefixIcon: Icon(Icons.attach_money_sharp, color: Color(0xFF74B9FF)),
                   suffixIcon: Icon(Icons.attach_money_sharp, color: Color(0xFF74B9FF)),
                   focusedBorder: OutlineInputBorder(
