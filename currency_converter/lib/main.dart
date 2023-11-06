@@ -1,5 +1,4 @@
 import 'package:currency_converter/currency_converter_material_page.dart';
-import 'package:flutter/cupertino.dart';
 // ignore: unnecessary_import
 import 'package:flutter/material.dart';
 
