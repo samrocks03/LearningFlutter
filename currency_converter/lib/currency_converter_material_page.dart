@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_declarations
+
 import 'package:flutter/material.dart';
 
 class CurrencyConverterMaterialPage extends StatelessWidget {
@@ -5,7 +7,22 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+
+    final border =  const OutlineInputBorder(
+                  borderSide: BorderSide(
+                     color: Color(0xFF74B9FF),
+                    width: 2,
+                    style: BorderStyle.solid,
+                    strokeAlign : BorderSide.strokeAlignInside,
+                    ),
+                  
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(40)
+                    ),
+                  );
+
+
+    return  Scaffold(
       backgroundColor: Color.fromARGB(0, 66, 66, 171),
       // backgroundColor: MaterialAccentColor(700),
       body: Center(
@@ -22,6 +39,7 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
             ),
             SizedBox(height: 20),
             TextField(
+              
               style: TextStyle(
                 color: Color(0xFF74B9FF),
                 fontStyle:FontStyle.italic
@@ -32,23 +50,13 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                   hintText: "Enter the amount in USD",
                   hintStyle: TextStyle(color: Colors.black),
                   filled: true,
-                  fillColor:Color(0xFFFFB6C1),
+                  fillColor:Color.fromARGB(255, 88, 88, 88),
                   prefixIcon: Icon(Icons.attach_money_sharp,
                      color: Color(0xFF74B9FF)
                    ),
 
-                 
-                  focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                     color: Color(0xFF74B9FF),
-                    width: 2,
-                    style: BorderStyle.solid,
-                    strokeAlign : BorderSide.strokeAlignInside,
-                    ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(30)
-                    ),
-                ),
+                  enabledBorder: border,
+                  focusedBorder: border,
                 ),
               ),
           ],
