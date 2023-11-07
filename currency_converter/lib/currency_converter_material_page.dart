@@ -24,22 +24,26 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
 
     return  Scaffold(
       backgroundColor: Color.fromARGB(0, 66, 66, 171),
-      // backgroundColor: MaterialAccentColor(700),
+      // backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              "Currency Converter",
-              style: TextStyle(
-                fontSize: 36,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF74B9FF), // Changed text color to black
+            Container(
+              padding: EdgeInsets.all(15),
+              margin: EdgeInsets.all(15),
+              // color: Colors.black,
+              child: Text(
+                "Currency Converter",
+                style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF74B9FF), // Changed text color to black
+                ),
               ),
             ),
             SizedBox(height: 20),
             TextField(
-              
               style: TextStyle(
                 color: Color(0xFF74B9FF),
                 fontStyle:FontStyle.italic
@@ -48,13 +52,13 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   hintText: "Enter the amount in USD",
-                  hintStyle: TextStyle(color: Colors.black),
+                  hintStyle: TextStyle(color: Colors.white),
                   filled: true,
                   fillColor:Color.fromARGB(255, 88, 88, 88),
                   prefixIcon: Icon(Icons.attach_money_sharp,
                      color: Color(0xFF74B9FF)
                    ),
-
+            
                   enabledBorder: border,
                   focusedBorder: border,
                 ),
