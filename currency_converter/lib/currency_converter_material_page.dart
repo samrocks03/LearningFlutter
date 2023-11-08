@@ -25,15 +25,20 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
 
     return  Scaffold(
       backgroundColor: Color.fromARGB(0, 66, 66, 171),
-      // backgroundColor: Colors.white,
       appBar : AppBar(
+        backgroundColor: Color.fromARGB(255, 28, 20, 20),
         title: Row(
+          
           children: const [
             Icon(Icons.attach_money_outlined,
                   color: Colors.amber,
                 ),
-            Text("Currency Converter"),
-          ],
+            Text("Currency Converter",
+              style: TextStyle(
+                color: Colors.amber
+                ),
+              ),
+            ],
         ),
       ),
       body: Center(
