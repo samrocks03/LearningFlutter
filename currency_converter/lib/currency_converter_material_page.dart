@@ -77,6 +77,8 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                 padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(15)),
                 textStyle: MaterialStateProperty.all<TextStyle>(TextStyle(
                   fontSize: 20,
+                  // fontWeight: FontWeight.bold,
+                  // fontStyle: FontStyle.italic,
                   color: Colors.white,
                 )),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -92,7 +94,6 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                 ),
               
               onPressed: (){
-                // Three modes of application : debug, release, profile
                 debugPrint("I'm pressed"); //debugPrint returns only a string rather than an object{returned by print statement} 
               // print("Button Clicked");
               },
