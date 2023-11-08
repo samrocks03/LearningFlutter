@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_declarations
+// ignore_for_file: prefer_const_constructors, prefer_const_declarations, avoid_print
 
 import 'package:flutter/material.dart';
 
@@ -63,6 +63,41 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                   focusedBorder: border,
                 ),
               ),
+
+            SizedBox(height: 20),
+            // Different types of Button : 
+              // Raised
+              // Appears to be text
+
+            // ignore: deprecated_member_use
+            TextButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF74B9FF)),
+                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(15)),
+                textStyle: MaterialStateProperty.all<TextStyle>(TextStyle(
+                  fontSize: 20,
+                  // fontWeight: FontWeight.bold,
+                  // fontStyle: FontStyle.italic,
+                  color: Colors.white,
+                )),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(40),
+                    side: BorderSide(
+                      color: Color(0xFF74B9FF),
+                      width: 2,
+                      style: BorderStyle.solid,
+                      ),
+                    ),
+                  ),
+                ),
+              
+              onPressed: (){
+              print("Button Clicked");
+              },
+               child: Text("Click Me"),
+               )
           ],
         ),
       ),
