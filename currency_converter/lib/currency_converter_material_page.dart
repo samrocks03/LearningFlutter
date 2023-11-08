@@ -71,22 +71,31 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
               // Appears to be text
 
             // ignore: deprecated_member_use
-            TextButton(
+            TextButton(            
               onHover: (value) {
                 if(kDebugMode){
                 print("I'm hovered");
                 }
               },
               style: ButtonStyle(
+
+                // Playing with size 
+                // If u keep minimumSize with height : double.minPositive -> it'll only take the size of the widget it's containing
+                                          //   width : double.infinity -> it'll take the entire width from left -> right
+                minimumSize: MaterialStatePropertyAll(
+                    Size(double.infinity,
+                    double.minPositive),
+                  ),
                 backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(255, 92, 169, 246)),
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.tealAccent),
                 padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(15)),
-                textStyle: MaterialStateProperty.all<TextStyle>(TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+                textStyle: MaterialStateProperty.all<TextStyle>(
+                  TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
                   fontStyle: FontStyle.italic,
                   // color: Colors.white, //This color property can't be used, u need to use `foregroundColor`
-                )),
+                  )),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(40),
@@ -103,8 +112,16 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                 debugPrint("I'm pressed"); //debugPrint returns only a string rather than an object{returned by print statement} 
               // print("Button Clicked");
               },
-               child: Text("Click Me"),
-               )
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: const [
+                  Icon(Icons.ads_click_sharp,
+                  color: Colors.red,),
+                  SizedBox(width: 8),
+                  Text("Click Me",)
+                ],
+              ),
+            ),  
           ],
         ),
       ),
