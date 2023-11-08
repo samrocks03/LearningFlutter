@@ -1,4 +1,6 @@
 import 'package:currency_converter/currency_converter_material_page.dart';
+import 'package:currency_converter/currency_converter_cupertino_page.dart';
+// import 'package:flutter/cupertino.dart';
 // ignore: unnecessary_import
 import 'package:flutter/material.dart';
 
@@ -31,3 +33,17 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+// class MyCupertinoApp extends StatelessWidget {
+//   // ignore: use_key_in_widget_constructors
+//   const MyCupertinoApp({Key? key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return const CupertinoApp(
+//       debugShowCheckedModeBanner: false,
+//       home: CurrencyConverterCupertinoPage(), // Use your CurrencyConverterCupertinoPage here
+//     );
+//   }
+// }
