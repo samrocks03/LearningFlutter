@@ -94,7 +94,8 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                 ),
               
               onPressed: (){
-              print("Button Clicked");
+                debugPrint("I'm pressed"); //debugPrint returns only a string rather than an object{returned by print statement} 
+              // print("Button Clicked");
               },
                child: Text("Click Me"),
                )
