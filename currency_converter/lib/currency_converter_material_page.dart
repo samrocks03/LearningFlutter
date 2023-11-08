@@ -66,22 +66,16 @@ class _CurrencyConverterMaterialPageState extends State<CurrencyConverterMateria
               child: 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("₹ "
-                ,style: TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF74B9FF), // Changed text color to black
-                ),
-                  ),
-                    Text(res.toString(),
+                  children: 
+                  [
+                    Text("₹ $res",
                     style: TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF74B9FF), // Changed text color to black
-                ),
-              )
-                  ],
+                    fontSize: 36,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF74B9FF), // Changed text color to black
+                  ),
+                )
+              ],
                 ),
             ),
             SizedBox(height: 20),
