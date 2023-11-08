@@ -87,7 +87,9 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                     Size(double.infinity,
                     double.minPositive),
                   ),
-*/
+*/              elevation: MaterialStatePropertyAll(15),
+                surfaceTintColor : MaterialStatePropertyAll(Colors.white),
+                splashFactory :InkSplash.splashFactory ,
                 backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(255, 92, 169, 246)),
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.tealAccent),
                 padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(15)),
