@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_declarations, avoid_print
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class CurrencyConverterMaterialPage extends StatelessWidget {
@@ -71,15 +72,20 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
 
             // ignore: deprecated_member_use
             TextButton(
+              onHover: (value) {
+                if(kDebugMode){
+                print("I'm hovered");
+                }
+              },
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF74B9FF)),
-                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(255, 92, 169, 246)),
+                foregroundColor: MaterialStateProperty.all<Color>(Colors.tealAccent),
                 padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(15)),
                 textStyle: MaterialStateProperty.all<TextStyle>(TextStyle(
                   fontSize: 20,
-                  // fontWeight: FontWeight.bold,
-                  // fontStyle: FontStyle.italic,
-                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
+                  // color: Colors.white, //This color property can't be used, u need to use `foregroundColor`
                 )),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
