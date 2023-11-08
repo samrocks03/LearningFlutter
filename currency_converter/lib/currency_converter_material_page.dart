@@ -72,11 +72,7 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
 
             // ignore: deprecated_member_use
             ElevatedButton(            
-              onHover: (value) {
-                if(kDebugMode){
-                print("I'm hovered");
-                }
-              },
+
               style: ButtonStyle(
 
                 // Playing with size 
