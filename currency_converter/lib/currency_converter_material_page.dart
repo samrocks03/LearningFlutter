@@ -83,10 +83,11 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                 // If u keep minimumSize with height : double.minPositive -> it'll only take the size of the widget it's containing
                                           //   width : double.infinity -> it'll take the entire width from left -> right
                 //  if we go with maxSize : It'll cover up only those widget's space
-                // minimumSize: MaterialStatePropertyAll(
-                //     Size(double.infinity,
-                //     double.minPositive),
-                //   ),
+/*                minimumSize: MaterialStatePropertyAll(
+                    Size(double.infinity,
+                    double.minPositive),
+                  ),
+*/
                 backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(255, 92, 169, 246)),
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.tealAccent),
                 padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(15)),
