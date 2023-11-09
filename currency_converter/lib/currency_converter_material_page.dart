@@ -19,6 +19,11 @@ class _CurrencyConverterMaterialPageState extends State<CurrencyConverterMateria
   double res = 0;
 
   @override
+  void initState(){
+    super.initState();
+    debugPrint("initState");
+  }
+  @override
   void dispose(){
     textEditingController.dispose();
     super.dispose();
