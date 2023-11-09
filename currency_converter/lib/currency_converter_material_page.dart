@@ -19,6 +19,11 @@ class _CurrencyConverterMaterialPageState extends State<CurrencyConverterMateria
   double res = 0;
 
   @override
+  void dispose(){
+    textEditingController.dispose();
+    super.dispose();
+  }
+  @override
   Widget build(BuildContext context) {
     // return const Scaffold();
     print("rebuilt");
