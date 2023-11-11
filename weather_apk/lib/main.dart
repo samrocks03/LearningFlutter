@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromRGBO(228, 190, 56,0.9),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromRGBO(228, 190,102,0.9),
         ),
         useMaterial3: true,
         applyElevationOverlayColor: true ,
@@ -95,14 +95,17 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Row(
                 children: [
                   ElevatedButton(
-                    onPressed: _incrementCounter
-                  , child: const Icon(Icons.add_box_rounded)),
-            
+                      onPressed: _incrementCounter,
+                      child: const Icon(Icons.add_box_rounded)),
+
+                  const SizedBox(width: 20,
+                  ),
+
                   ElevatedButton(
-                    onPressed: _decrementCounter,
-                    child: const Icon(Icons.minimize_sharp)
-                  )
-                ],
+                      onPressed: _decrementCounter,
+                      child: const Icon(Icons.remove)
+                    )
+                  ],
               ),
             )
           ],
