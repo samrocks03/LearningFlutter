@@ -49,42 +49,44 @@ class WeatherApp extends StatelessWidget {
                   ),  
               elevation: 50,
 
-              child: BackdropFilter(
-                filter: ImageFilter.blur(
-                  sigmaX: 1.9,
-                  sigmaY: 1.9,
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Column(
-                    children: [
-                      Text("17 °F",
-                        style: TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
-                        )
+              child: ClipRect(
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(
+                    sigmaX: 1.9,
+                    sigmaY: 1.9,
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Column(
+                      children: [
+                        Text("17 °F",
+                          style: TextStyle(
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold,
+                          )
+                          ),
+                  
+                        SizedBox(
+                          width: 20,
                         ),
-                
-                      SizedBox(
-                        width: 20,
-                      ),
-                
-                      Icon(
-                        Icons.water,
-                        size: 60,
+                  
+                        Icon(
+                          Icons.water,
+                          size: 60,
+                          ),
+                  
+                        SizedBox(
+                          width: 20,
                         ),
-                
-                      SizedBox(
-                        width: 20,
-                      ),
-                      
-                      Text("Rain",
-                        style: TextStyle(
-                          fontSize: 20,
-                          
-                        )
-                        ),
-                    ],
+                        
+                        Text("Rain",
+                          style: TextStyle(
+                            fontSize: 20,
+                            
+                          )
+                          ),
+                      ],
+                    ),
                   ),
                 ),
               ),
