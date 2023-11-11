@@ -17,6 +17,8 @@ class MyApp extends StatelessWidget {
         ),
         // colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent),
         useMaterial3: true,
+        // primaryColor: Colors.amber[50],
+        applyElevationOverlayColor: true ,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
