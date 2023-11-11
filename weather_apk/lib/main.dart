@@ -52,7 +52,6 @@ class _MyHomePageState extends State<MyHomePage> {
         _counter--;
       });
     }
-    TextEditingController t = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -83,6 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             const Text(
               'Press the BUTTon:',
+              
             ),
             Text(
               '$_counter',
