@@ -17,13 +17,13 @@ class WeatherApp extends StatelessWidget {
                   fontWeight: FontWeight.bold,              
             ),
             ),
-        centerTitle: true,
-        // ignore: prefer_const_literals_to_create_immutables
-        actions: [
-          // ignore: prefer_const_constructors
-          GestureDetector(
+          centerTitle: true,
+          // ignore: prefer_const_literals_to_create_immutables
+          actions: [
             // ignore: prefer_const_constructors
-            child: Icon(Icons.refresh_sharp)
+            IconButton(
+              onPressed: (){},
+              icon: const Icon(Icons.refresh_sharp)
             )
           ]
       ),
