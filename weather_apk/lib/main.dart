@@ -6,14 +6,16 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
+  // static const a = 50;
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255,227,242,253),
+        ),
+        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
