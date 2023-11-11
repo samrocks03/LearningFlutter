@@ -28,6 +28,21 @@ class WeatherApp extends StatelessWidget {
           ]
       ),
 
+
+      body: const Column(
+        children: [
+          // Main card for Current Weather forecast
+          Placeholder(
+            fallbackHeight: 250,
+          ),
+
+          SizedBox(height: 40,),
+          Placeholder(
+            fallbackHeight: 150,
+          ),
+
+        ],
+      ),
     );
   }
 }
