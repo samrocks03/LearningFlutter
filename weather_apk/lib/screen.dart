@@ -49,7 +49,9 @@ class WeatherApp extends StatelessWidget {
                   ),  
               elevation: 50,
 
-              child: ClipRect(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(50),
+                // clipper: CustomClipper(RRect().),
                 child: BackdropFilter(
                   filter: ImageFilter.blur(
                     sigmaX: 1.9,
