@@ -45,12 +45,12 @@ class WeatherApp extends StatelessWidget {
             width: double.infinity,
             child: Card(
               shape : RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50) 
+                  borderRadius: BorderRadius.circular(20) 
                   ),  
               elevation: 50,
 
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(50),
+                borderRadius: BorderRadius.circular(20),
                 // clipper: CustomClipper(RRect().),
                 child: BackdropFilter(
                   filter: ImageFilter.blur(
