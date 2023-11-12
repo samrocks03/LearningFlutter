@@ -296,3 +296,43 @@ class WeatherApp extends StatelessWidget {
     );
   }
 }
+
+class HourlyForecastWidget extends StatelessWidget {
+  const HourlyForecastWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        width: 100,
+        child: Card(
+          shape : RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20) 
+            ),
+          elevation: 50,
+          child : Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Column(
+              children: [
+                Text("3:00",
+                  style: TextStyle(
+                    fontSize: 14,
+                  )
+                  ),
+          
+                SizedBox(height: 5),
+          
+                Icon(
+                  Icons.cloud_queue_sharp,
+                  size: 30,
+                  ),
+          
+                SizedBox(height: 5),
+          
+                Text("14 °F",),
+              ],
+            ),
+          )
+        ),
+      );
+  }
+}
