@@ -1,4 +1,6 @@
 
+// ignore_for_file: prefer_const_constructors, duplicate_ignore
+
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -32,16 +34,12 @@ class WeatherApp extends StatelessWidget {
 
 
       body: Padding(
+        // ignore: prefer_const_constructors
         padding:  EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment : CrossAxisAlignment.start,
           children: [
-            // Main card for Current Weather forecast
-            // Placeholder(
-            //   fallbackHeight: 250,
-            //   child: Text("Main Cards"),
-            // ),
-      
-          Container(
+          SizedBox(
             width: double.infinity,
             child: Card(
               shape : RoundedRectangleBorder(
@@ -84,7 +82,6 @@ class WeatherApp extends StatelessWidget {
                         Text("Rain",
                           style: TextStyle(
                             fontSize: 20,
-                            
                           )
                           ),
                       ],
@@ -95,6 +92,16 @@ class WeatherApp extends StatelessWidget {
             ),
           ),
             const SizedBox(height: 40,),
+
+            Align(
+              alignment : Alignment.centerLeft,
+              child: const Text("Weather Forecast",
+                style: TextStyle(
+                  fontSize: 23,
+                  fontWeight: FontWeight.bold
+                  ),
+                ),
+            ),
       
             Placeholder(
               fallbackHeight: 150,
