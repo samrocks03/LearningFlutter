@@ -102,12 +102,16 @@ class WeatherApp extends StatelessWidget {
                   ),
                 ),
             ),
-      
-            Placeholder(
-              fallbackHeight: 150,
-              child: Text("Weather Forecast Sliding Cards"),
+
+            const SizedBox(height: 20,),
+
+
+            Row(
+              children: [
+
+              ],
             ),
-      
+
             SizedBox(height: 40,),
       
             Placeholder(
