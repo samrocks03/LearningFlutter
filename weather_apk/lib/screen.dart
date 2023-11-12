@@ -112,38 +112,7 @@ class WeatherApp extends StatelessWidget {
               child: Row(
                 children: [
                   
-                  SizedBox(
-                    width: 100,
-                    child: Card(
-                      shape : RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20) 
-                        ),
-                      elevation: 50,
-                      child : Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Column(
-                          children: [
-                            Text("3:00",
-                              style: TextStyle(
-                                fontSize: 14,
-                              )
-                              ),
-                      
-                            SizedBox(height: 5),
-                      
-                            Icon(
-                              Icons.cloud_queue_sharp,
-                              size: 30,
-                              ),
-                      
-                            SizedBox(height: 5),
-                      
-                            Text("14 °F",),
-                          ],
-                        ),
-                      )
-                    ),
-                  ),
+                  HourlyForecastWidget(),
                   
                   SizedBox(
                     width: 100,
@@ -302,37 +271,36 @@ class HourlyForecastWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-        width: 100,
-        child: Card(
+    return Card(
+          elevation: 50,
           shape : RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20) 
             ),
-          elevation: 50,
-          child : Padding(
-            padding: const EdgeInsets.all(4.0),
+
+          child : Container(
+            width: 100,
+            padding: EdgeInsets.all(4.0),
             child: Column(
               children: [
                 Text("3:00",
                   style: TextStyle(
                     fontSize: 14,
                   )
-                  ),
-          
+                ),
+            
                 SizedBox(height: 5),
-          
+            
                 Icon(
                   Icons.cloud_queue_sharp,
                   size: 30,
                   ),
-          
+            
                 SizedBox(height: 5),
-          
+            
                 Text("14 °F",),
               ],
             ),
           )
-        ),
-      );
+        );
   }
 }
