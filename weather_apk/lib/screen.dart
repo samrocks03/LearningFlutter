@@ -1,5 +1,5 @@
 
-// ignore_for_file: prefer_const_constructors, duplicate_ignore
+// ignore_for_file: prefer_const_constructors, duplicate_ignore, prefer_const_literals_to_create_immutables
 
 import 'dart:ui';
 
@@ -91,6 +91,7 @@ class WeatherApp extends StatelessWidget {
               ),
             ),
           ),
+
             const SizedBox(height: 40,),
 
             Align(
@@ -108,7 +109,31 @@ class WeatherApp extends StatelessWidget {
 
             Row(
               children: [
+                SizedBox(
+                  width: 100,
+                  child: Card(
+                    child : Column(
+                      children: [
+                        Text("3:00",
+                          style: TextStyle(
+                            fontSize: 14,
+                          )
+                          ),
 
+                        SizedBox(height: 5),
+
+                        Icon(
+                          Icons.cloud_queue_sharp,
+                          size: 30,
+                          ),
+
+                        SizedBox(height: 5),
+
+                        Text("14 °F",),
+                      ],
+                    )
+                  ),
+                )
               ],
             ),
 
