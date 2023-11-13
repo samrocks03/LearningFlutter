@@ -114,15 +114,35 @@ class WeatherApp extends StatelessWidget {
               child: Row(
                 children: [
                   
-                  HourlyForecastWidget(),
+                  HourlyForecastWidget(
+                    time: "12:00",
+                    icon: Icons.wb_sunny_rounded,
+                    temperature: "17 °F",
+                  ),
                   
-                  HourlyForecastWidget(),
+                  HourlyForecastWidget(
+                    time: "12:00",
+                    icon: Icons.wb_sunny_rounded,
+                    temperature: "17 °F",
+                  ),
 
-                  HourlyForecastWidget(),
+                  HourlyForecastWidget(
+                    time: "12:00",
+                    icon: Icons.wb_sunny_rounded,
+                    temperature: "17 °F",                    
+                  ),
                   
-                  HourlyForecastWidget(),
+                  HourlyForecastWidget(
+                    time: "12:00",
+                    icon: Icons.wb_sunny_rounded,
+                    temperature: "17 °F",                    
+                  ),
                   
-                  HourlyForecastWidget(),
+                  HourlyForecastWidget(
+                    time: "12:00",
+                    icon: Icons.wb_sunny_rounded,
+                    temperature: "17 °F",                    
+                  ),
                               
                 ],
               ),
@@ -146,14 +166,21 @@ class WeatherApp extends StatelessWidget {
               children: [
                     AdditionalInformationCard(
                       icon: Icons.water_drop_rounded,
+                      weather_type: "Humidity",
+                      value: "91%",
                     ),
 
                     AdditionalInformationCard(
-                      icon: Icons.water_drop_rounded
+                      icon: Icons.air_sharp,
+                      weather_type: "Wind Speed",
+                      value: "7.5",
                     ),                    
                     
                     AdditionalInformationCard(
-                      icon: Icons.water_drop_rounded
+                      icon: Icons.beach_access_rounded,
+                      weather_type: "Pressure",
+                      value: "1005",
+
                     ),                    
                 ],
             )
