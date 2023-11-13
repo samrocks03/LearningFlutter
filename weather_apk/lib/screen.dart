@@ -4,6 +4,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:weather_apk/hourly_forecast_card.dart';
 
 class WeatherApp extends StatelessWidget {
   const WeatherApp({super.key});
@@ -12,7 +13,7 @@ class WeatherApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        // foregroundColor: Color.fromARGB(170, 170, 251, 243),
+        // foregroundColor: Color.fromARGB(170, 170, 251, 249),
         // elevation : 10,
         title:
               const Text("Weather Detector",
@@ -98,7 +99,7 @@ class WeatherApp extends StatelessWidget {
               alignment : Alignment.centerLeft,
               child: const Text("Weather Forecast",
                 style: TextStyle(
-                  fontSize: 23,
+                  fontSize: 30,
                   fontWeight: FontWeight.bold
                   ),
                 ),
@@ -132,12 +133,26 @@ class WeatherApp extends StatelessWidget {
             Text(
               "Additional Forecast",
               style : TextStyle(
-                fontSize: 23,
+                fontSize: 30,
                 fontWeight: FontWeight.bold
               )
             ),
 
-            
+            SizedBox(height: 14,),
+
+            Row(
+              children: [
+                    AdditionalInformationCard(),
+
+                    SizedBox(width: 49),
+
+                    AdditionalInformationCard(),                    
+                    
+                    SizedBox(width: 49),
+
+                    AdditionalInformationCard(),                    
+                ],
+            )
           ],
         ),
       ),
@@ -145,38 +160,33 @@ class WeatherApp extends StatelessWidget {
   }
 }
 
-class HourlyForecastWidget extends StatelessWidget {
-  const HourlyForecastWidget({super.key});
+
+
+class AdditionalInformationCard extends StatelessWidget {
+  const AdditionalInformationCard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-          elevation: 50,
-          shape : RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20) 
-            ),
-
+      return Card(
           child : Container(
-            width: 90,
-            padding: EdgeInsets.all(4.0),
+            padding: EdgeInsets.all(9),
             child: Column(
               children: [
-                Text("3:00",
-                  style: TextStyle(
-                    fontSize: 14,
-                  )
-                ),
-            
-                SizedBox(height: 5),
-            
-                Icon(
-                  Icons.cloud_queue_sharp,
+                Icon(Icons.water_drop_rounded,
                   size: 30,
                   ),
-            
-                SizedBox(height: 5),
-            
-                Text("14 °F",),
+                              
+                SizedBox(height: 10),
+                              
+                Text("Humidity"),
+                              
+                Text("94",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold
+                  ),
+                ),
+                              
+                // SizedBox(height: 10),      
               ],
             ),
           )
