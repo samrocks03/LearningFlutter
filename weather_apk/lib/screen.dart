@@ -127,11 +127,16 @@ class WeatherApp extends StatelessWidget {
             ),
 
             SizedBox(height: 40,),
-      
-            Placeholder(
-              fallbackHeight: 150,
-              child: Text("Other Information Cards"),
+
+
+            Text(
+              "Additional Forecast",
+              style : TextStyle(
+                fontSize: 23,
+                fontWeight: FontWeight.bold
+              )
             ),
+
             
           ],
         ),
