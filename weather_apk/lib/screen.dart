@@ -4,6 +4,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:weather_apk/additional_inf_card.dart';
 import 'package:weather_apk/hourly_forecast_card.dart';
 
 class WeatherApp extends StatelessWidget {
@@ -160,36 +161,3 @@ class WeatherApp extends StatelessWidget {
   }
 }
 
-
-
-class AdditionalInformationCard extends StatelessWidget {
-  const AdditionalInformationCard({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-      return Card(
-          child : Container(
-            padding: EdgeInsets.all(9),
-            child: Column(
-              children: [
-                Icon(Icons.water_drop_rounded,
-                  size: 30,
-                  ),
-                              
-                SizedBox(height: 10),
-                              
-                Text("Humidity"),
-                              
-                Text("94",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold
-                  ),
-                ),
-                              
-                // SizedBox(height: 10),      
-              ],
-            ),
-          )
-        );
-  }
-}
