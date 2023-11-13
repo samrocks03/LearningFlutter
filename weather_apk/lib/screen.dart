@@ -145,12 +145,8 @@ class WeatherApp extends StatelessWidget {
               children: [
                     AdditionalInformationCard(),
 
-                    SizedBox(width: 49),
-
                     AdditionalInformationCard(),                    
                     
-                    SizedBox(width: 49),
-
                     AdditionalInformationCard(),                    
                 ],
             )
