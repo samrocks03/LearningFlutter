@@ -142,6 +142,7 @@ class WeatherApp extends StatelessWidget {
             SizedBox(height: 14,),
 
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                     AdditionalInformationCard(),
 
