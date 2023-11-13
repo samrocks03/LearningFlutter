@@ -1,15 +1,56 @@
 
-// ignore_for_file: prefer_const_constructors, duplicate_ignore, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, duplicate_ignore, prefer_const_literals_to_create_immutables, prefer_const_declarations
 
+import 'dart:convert';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:weather_apk/additional_inf_card.dart';
 import 'package:weather_apk/hourly_forecast_card.dart';
+import 'package:http/http.dart' as http;
+import 'package:weather_apk/secrets.dart';
 
-class WeatherApp extends StatelessWidget {
+class WeatherApp extends StatefulWidget {
+
+
   const WeatherApp({super.key});
+  @override
+  State<WeatherApp> createState() => _WeatherAppState();
+}
 
+class _WeatherAppState extends State<WeatherApp> {
+
+
+    double temp=0;
+
+    Future getCurrWeather() async{
+      try{
+        final String cityName = "London";
+        final res = await http.get(
+          Uri.parse("https://api.openweathermap.org/data/2.5/forecast?q=$cityName,uk&APPID=$apiKey")
+        );
+        // debugPrint(res.body);
+        final data = jsonDecode(res.body);
+
+        if(data['cod'] != "200"){
+            throw "Unexpected error occurred";
+        }
+
+        setState(() {
+          temp = data['list'][0]['main']['temp'];
+        });
+      }
+      catch(e){
+        throw e.toString();
+      }
+  }
+
+
+  @override
+  void initState() {
+    super.initState();
+    getCurrWeather();
+  }
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -57,11 +98,11 @@ class WeatherApp extends StatelessWidget {
                     sigmaX: 1.9,
                     sigmaY: 1.9,
                   ),
-                  child: const Padding(
+                  child: Padding(
                     padding: EdgeInsets.all(16.0),
                     child: Column(
                       children: [
-                        Text("17 °F",
+                        Text("$temp K",
                           style: TextStyle(
                             fontSize: 32,
                             fontWeight: FontWeight.bold,
