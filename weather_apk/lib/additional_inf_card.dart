@@ -7,29 +7,24 @@ class AdditionalInformationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      return Card(
-          child : Container(
-            padding: EdgeInsets.all(9),
-            child: Column(
-              children: [
-                Icon(Icons.water_drop_rounded,
-                  size: 30,
-                  ),
-                              
-                SizedBox(height: 10),
-                              
-                Text("Humidity"),
-                              
-                Text("94",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold
-                  ),
-                ),
-                              
-                // SizedBox(height: 10),      
-              ],
+      return Column(
+        children: [
+          Icon(Icons.water_drop_rounded,
+            size: 30,
             ),
-          )
-        );
+                        
+          SizedBox(height: 10),
+                        
+          Text("Humidity"),
+                        
+          Text("94",
+            style: TextStyle(
+                fontWeight: FontWeight.bold
+            ),
+          ),
+                        
+          // SizedBox(height: 10),      
+        ],
+      );
   }
 }
