@@ -152,7 +152,7 @@ class HourlyForecastWidget extends StatelessWidget {
             ),
 
           child : Container(
-            width: 100,
+            width: 90,
             padding: EdgeInsets.all(4.0),
             child: Column(
               children: [
