@@ -144,11 +144,17 @@ class WeatherApp extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                    AdditionalInformationCard(),
+                    AdditionalInformationCard(
+                      icon: Icons.water_drop_rounded,
+                    ),
 
-                    AdditionalInformationCard(),                    
+                    AdditionalInformationCard(
+                      icon: Icons.water_drop_rounded
+                    ),                    
                     
-                    AdditionalInformationCard(),                    
+                    AdditionalInformationCard(
+                      icon: Icons.water_drop_rounded
+                    ),                    
                 ],
             )
           ],

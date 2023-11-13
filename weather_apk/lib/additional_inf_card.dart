@@ -3,13 +3,22 @@
 import 'package:flutter/material.dart';
 
 class AdditionalInformationCard extends StatelessWidget {
-  const AdditionalInformationCard({super.key});
+// Stateless widgets are immutable,
+// Hence, using the final keyword for each 
+  final IconData icon;
+
+
+  const AdditionalInformationCard({
+    super.key,
+    required this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
       return Column(
         children: [
-          Icon(Icons.water_drop_rounded,
+          Icon(
+            icon,
             size: 30,
             ),
                         
