@@ -78,7 +78,7 @@ class _WeatherAppState extends State<WeatherApp> {
           builder: (context,snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting){
               return const Center(
-                child: CircularProgressIndicator(
+                child: CircularProgressIndicator.adaptive(
                 ),
               );
             }
