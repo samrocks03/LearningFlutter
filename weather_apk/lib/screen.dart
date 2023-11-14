@@ -21,7 +21,7 @@ class WeatherApp extends StatefulWidget {
 class _WeatherAppState extends State<WeatherApp> {
 
 
-    Future getCurrWeather() async{
+    Future<Map<String,dynamic>> getCurrWeather() async{
       try{
         final String cityName = "London";
         final res = await http.get(
@@ -86,6 +86,9 @@ class _WeatherAppState extends State<WeatherApp> {
             if(snapshot.hasError){
                return Text(snapshot.error.toString());
             }
+
+            final data = snapshot.data;
+            final currTemp = data!['list'][0]['main']['temp'];
             return Padding(
           // ignore: prefer_const_constructors
           padding:  EdgeInsets.all(16.0),
@@ -112,7 +115,7 @@ class _WeatherAppState extends State<WeatherApp> {
                       padding: EdgeInsets.all(16.0),
                       child: Column(
                         children: [
-                          Text("200 K",
+                          Text("$currTemp K",
                             style: TextStyle(
                               fontSize: 32,
                               fontWeight: FontWeight.bold,
