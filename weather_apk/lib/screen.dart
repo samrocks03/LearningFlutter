@@ -82,6 +82,10 @@ class _WeatherAppState extends State<WeatherApp> {
                 ),
               );
             }
+
+            if(snapshot.hasError){
+               return Text(snapshot.error.toString());
+            }
             return Padding(
           // ignore: prefer_const_constructors
           padding:  EdgeInsets.all(16.0),
