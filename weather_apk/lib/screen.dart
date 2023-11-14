@@ -75,7 +75,8 @@ class _WeatherAppState extends State<WeatherApp> {
       body: 
         FutureBuilder(
           future: getCurrWeather(),
-          builder: (context,snapshot) => Padding(
+          builder: (context,snapshot) {
+            return Padding(
           // ignore: prefer_const_constructors
           padding:  EdgeInsets.all(16.0),
           child: Column(
@@ -226,7 +227,8 @@ class _WeatherAppState extends State<WeatherApp> {
               )
             ],
           ),
-              ),
+              );
+          },
         ),
     );
   }
