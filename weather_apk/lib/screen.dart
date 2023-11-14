@@ -76,7 +76,10 @@ class _WeatherAppState extends State<WeatherApp> {
       ),
 
 
-      body: Padding(
+      body: 
+        temp==0 ? CircularProgressIndicator(
+
+        ) : Padding(
         // ignore: prefer_const_constructors
         padding:  EdgeInsets.all(16.0),
         child: Column(
