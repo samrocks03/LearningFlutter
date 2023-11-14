@@ -20,17 +20,9 @@ class WeatherApp extends StatefulWidget {
 
 class _WeatherAppState extends State<WeatherApp> {
 
-    bool isLoading = false; //initially making the isLoading to false
-    double temp=0;
 
     Future getCurrWeather() async{
       try{
-
-        setState(() {
-          isLoading = true;
-        });
-
-
         final String cityName = "London";
         final res = await http.get(
           Uri.parse("https://api.openweathermap.org/data/2.5/forecast?q=$cityName,uk&APPID=$apiKey")
@@ -41,11 +33,9 @@ class _WeatherAppState extends State<WeatherApp> {
         if(data['cod'] != "200"){
             throw "Unexpected error occurred";
         }
+        return data;
 
-        setState(() {
-          temp = data['list'][0]['main']['temp'];
-          isLoading = false;
-        });
+          // temp = data['list'][0]['main']['temp'];
       }
       catch(e){
         throw e.toString();
@@ -84,10 +74,7 @@ class _WeatherAppState extends State<WeatherApp> {
 
 
       body: 
-        isLoading ? CircularProgressIndicator(
-          color: Colors.blue,
-          backgroundColor: Colors.white,
-        ) : Padding(
+        Padding(
         // ignore: prefer_const_constructors
         padding:  EdgeInsets.all(16.0),
         child: Column(
@@ -113,7 +100,7 @@ class _WeatherAppState extends State<WeatherApp> {
                     padding: EdgeInsets.all(16.0),
                     child: Column(
                       children: [
-                        Text("$temp K",
+                        Text("200 K",
                           style: TextStyle(
                             fontSize: 32,
                             fontWeight: FontWeight.bold,
