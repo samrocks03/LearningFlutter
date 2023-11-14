@@ -34,7 +34,6 @@ class _WeatherAppState extends State<WeatherApp> {
             throw "Unexpected error occurred";
         }
         return data;
-
           // temp = data['list'][0]['main']['temp'];
       }
       catch(e){
@@ -74,158 +73,161 @@ class _WeatherAppState extends State<WeatherApp> {
 
 
       body: 
-        Padding(
-        // ignore: prefer_const_constructors
-        padding:  EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment : CrossAxisAlignment.start,
-          children: [
-          SizedBox(
-            width: double.infinity,
-            child: Card(
-              shape : RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20) 
-                  ),  
-              elevation: 50,
-
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                // clipper: CustomClipper(RRect().),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(
-                    sigmaX: 1.9,
-                    sigmaY: 1.9,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: Column(
-                      children: [
-                        Text("200 K",
-                          style: TextStyle(
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold,
-                          )
+        FutureBuilder(
+          future: getCurrWeather(),
+          builder: (context,snapshot) => Padding(
+          // ignore: prefer_const_constructors
+          padding:  EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment : CrossAxisAlignment.start,
+            children: [
+            SizedBox(
+              width: double.infinity,
+              child: Card(
+                shape : RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20) 
+                    ),  
+                elevation: 50,
+          
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  // clipper: CustomClipper(RRect().),
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(
+                      sigmaX: 1.9,
+                      sigmaY: 1.9,
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Column(
+                        children: [
+                          Text("200 K",
+                            style: TextStyle(
+                              fontSize: 32,
+                              fontWeight: FontWeight.bold,
+                            )
+                            ),
+                    
+                          SizedBox(
+                            width: 20,
                           ),
-                  
-                        SizedBox(
-                          width: 20,
-                        ),
-                  
-                        Icon(
-                          Icons.water,
-                          size: 60,
+                    
+                          Icon(
+                            Icons.water,
+                            size: 60,
+                            ),
+                    
+                          SizedBox(
+                            width: 20,
                           ),
-                  
-                        SizedBox(
-                          width: 20,
-                        ),
-                        
-                        Text("Rain",
-                          style: TextStyle(
-                            fontSize: 20,
-                          )
-                          ),
-                      ],
+                          
+                          Text("Rain",
+                            style: TextStyle(
+                              fontSize: 20,
+                            )
+                            ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-
-            const SizedBox(height: 40,),
-
-            Align(
-              alignment : Alignment.centerLeft,
-              child: const Text("Weather Forecast",
-                style: TextStyle(
+          
+              const SizedBox(height: 40,),
+          
+              Align(
+                alignment : Alignment.centerLeft,
+                child: const Text("Weather Forecast",
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold
+                    ),
+                  ),
+              ),
+          
+              const SizedBox(height: 14,),
+          
+          
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    
+                    HourlyForecastWidget(
+                      time: "12:00",
+                      icon: Icons.wb_sunny_rounded,
+                      temperature: "17 °F",
+                    ),
+                    
+                    HourlyForecastWidget(
+                      time: "12:00",
+                      icon: Icons.wb_sunny_rounded,
+                      temperature: "17 °F",
+                    ),
+          
+                    HourlyForecastWidget(
+                      time: "12:00",
+                      icon: Icons.wb_sunny_rounded,
+                      temperature: "17 °F",                    
+                    ),
+                    
+                    HourlyForecastWidget(
+                      time: "12:00",
+                      icon: Icons.wb_sunny_rounded,
+                      temperature: "17 °F",                    
+                    ),
+                    
+                    HourlyForecastWidget(
+                      time: "12:00",
+                      icon: Icons.wb_sunny_rounded,
+                      temperature: "17 °F",                    
+                    ),
+                                
+                  ],
+                ),
+              ),
+          
+              SizedBox(height: 40,),
+          
+          
+              Text(
+                "Additional Forecast",
+                style : TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold
-                  ),
-                ),
-            ),
-
-            const SizedBox(height: 14,),
-
-
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  
-                  HourlyForecastWidget(
-                    time: "12:00",
-                    icon: Icons.wb_sunny_rounded,
-                    temperature: "17 °F",
-                  ),
-                  
-                  HourlyForecastWidget(
-                    time: "12:00",
-                    icon: Icons.wb_sunny_rounded,
-                    temperature: "17 °F",
-                  ),
-
-                  HourlyForecastWidget(
-                    time: "12:00",
-                    icon: Icons.wb_sunny_rounded,
-                    temperature: "17 °F",                    
-                  ),
-                  
-                  HourlyForecastWidget(
-                    time: "12:00",
-                    icon: Icons.wb_sunny_rounded,
-                    temperature: "17 °F",                    
-                  ),
-                  
-                  HourlyForecastWidget(
-                    time: "12:00",
-                    icon: Icons.wb_sunny_rounded,
-                    temperature: "17 °F",                    
-                  ),
-                              
-                ],
+                )
               ),
-            ),
-
-            SizedBox(height: 40,),
-
-
-            Text(
-              "Additional Forecast",
-              style : TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold
+          
+              SizedBox(height: 14,),
+          
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                      AdditionalInformationCard(
+                        icon: Icons.water_drop_rounded,
+                        weather_type: "Humidity",
+                        value: "91%",
+                      ),
+          
+                      AdditionalInformationCard(
+                        icon: Icons.air_sharp,
+                        weather_type: "Wind Speed",
+                        value: "7.5",
+                      ),                    
+                      
+                      AdditionalInformationCard(
+                        icon: Icons.beach_access_rounded,
+                        weather_type: "Pressure",
+                        value: "1005",
+          
+                      ),                    
+                  ],
               )
-            ),
-
-            SizedBox(height: 14,),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                    AdditionalInformationCard(
-                      icon: Icons.water_drop_rounded,
-                      weather_type: "Humidity",
-                      value: "91%",
-                    ),
-
-                    AdditionalInformationCard(
-                      icon: Icons.air_sharp,
-                      weather_type: "Wind Speed",
-                      value: "7.5",
-                    ),                    
-                    
-                    AdditionalInformationCard(
-                      icon: Icons.beach_access_rounded,
-                      weather_type: "Pressure",
-                      value: "1005",
-
-                    ),                    
-                ],
-            )
-          ],
+            ],
+          ),
+              ),
         ),
-      ),
     );
   }
 }
