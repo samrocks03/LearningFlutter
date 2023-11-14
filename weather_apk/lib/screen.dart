@@ -31,7 +31,7 @@ class _WeatherAppState extends State<WeatherApp> {
         final data = jsonDecode(res.body);
 
         if(data['cod'] != "200"){
-            throw "Unexpected error occurred";
+            throw data["message"];
         }
         return data;
           // temp = data['list'][0]['main']['temp'];
