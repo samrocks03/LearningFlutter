@@ -76,6 +76,12 @@ class _WeatherAppState extends State<WeatherApp> {
         FutureBuilder(
           future: getCurrWeather(),
           builder: (context,snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting){
+              return const Center(
+                child: CircularProgressIndicator(
+                ),
+              );
+            }
             return Padding(
           // ignore: prefer_const_constructors
           padding:  EdgeInsets.all(16.0),
