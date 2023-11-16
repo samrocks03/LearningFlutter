@@ -88,8 +88,10 @@ class _WeatherAppState extends State<WeatherApp> {
             }
 
             final data = snapshot.data;
-            final currTemp = data!['list'][0]['main']['temp'];
-            final currSky = data['list'][0]['weather'][0]['main'];
+
+            final currWeatherInfo = data!['list'][0];
+            final currTemp = currWeatherInfo['main']['temp'];
+            final currSky = currWeatherInfo['weather'][0]['main'];
             // print(currSky);
             // final currWeatherTemp = data![]
             return Padding(
