@@ -89,6 +89,9 @@ class _WeatherAppState extends State<WeatherApp> {
 
             final data = snapshot.data;
             final currTemp = data!['list'][0]['main']['temp'];
+            final currSky = data['list'][0]['weather'][0]['main'];
+            // print(currSky);
+            // final currWeatherTemp = data![]
             return Padding(
           // ignore: prefer_const_constructors
           padding:  EdgeInsets.all(16.0),
@@ -127,7 +130,8 @@ class _WeatherAppState extends State<WeatherApp> {
                           ),
                     
                           Icon(
-                            Icons.water,
+                            (currSky == "Clouds") ? 
+                            Icons.cloud : (currSky == "Rain" ? Icons.water : Icons.sunny),
                             size: 60,
                             ),
                     
@@ -135,7 +139,7 @@ class _WeatherAppState extends State<WeatherApp> {
                             width: 20,
                           ),
                           
-                          Text("Rain",
+                          Text("$currSky",
                             style: TextStyle(
                               fontSize: 20,
                             )
