@@ -232,7 +232,7 @@ class _WeatherAppState extends State<WeatherApp> {
                       AdditionalInformationCard(
                         icon: Icons.water_drop_rounded,
                         weather_type: "Humidity",
-                        value: "$currHumidity%",
+                        value: "$currHumidity",
                       ),
           
                       AdditionalInformationCard(
