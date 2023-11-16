@@ -92,6 +92,11 @@ class _WeatherAppState extends State<WeatherApp> {
             final currWeatherInfo = data!['list'][0];
             final currTemp = currWeatherInfo['main']['temp'];
             final currSky = currWeatherInfo['weather'][0]['main'];
+
+            final currPressure = currWeatherInfo['main']['pressure'];
+            final currHumidity = currWeatherInfo['main']['humidity'];
+
+            final windSpeed = currWeatherInfo['wind']['speed'];
             // print(currSky);
             // final currWeatherTemp = data![]
             return Padding(
@@ -227,19 +232,19 @@ class _WeatherAppState extends State<WeatherApp> {
                       AdditionalInformationCard(
                         icon: Icons.water_drop_rounded,
                         weather_type: "Humidity",
-                        value: "91%",
+                        value: "$currHumidity%",
                       ),
           
                       AdditionalInformationCard(
                         icon: Icons.air_sharp,
                         weather_type: "Wind Speed",
-                        value: "7.5",
+                        value: "$windSpeed",
                       ),                    
                       
                       AdditionalInformationCard(
                         icon: Icons.beach_access_rounded,
                         weather_type: "Pressure",
-                        value: "1005",
+                        value: "$currPressure",
           
                       ),                    
                   ],
