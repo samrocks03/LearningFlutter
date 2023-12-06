@@ -19,6 +19,17 @@ class WeatherApp extends StatefulWidget {
 
 class _WeatherAppState extends State<WeatherApp> {
 
+/*
+  (new) FutureBuilder<Map<String, dynamic>> FutureBuilder({
+    Key? key,
+    required Future<Map<String, dynamic>>? future,
+    Map<String, dynamic>? initialData,
+    required Widget Function(BuildContext, AsyncSnapshot<Map<String, dynamic>>) builder,
+  })
+*/
+
+// Since, we have to pass the value of this function into FutureBuilder, hence set the return type to .... 
+// Future<Map<String,dynamic>> ?future
     Future<Map<String,dynamic>> getCurrWeather() async{
       // Wrap it in try-catch block
       try{
@@ -79,6 +90,7 @@ class _WeatherAppState extends State<WeatherApp> {
 
       body: 
         FutureBuilder(
+          // Future builder is useful - when we are dealing with Future 
           future: getCurrWeather(),
           builder: (context,snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting){
