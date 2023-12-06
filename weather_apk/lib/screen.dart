@@ -178,7 +178,7 @@ class _WeatherAppState extends State<WeatherApp> {
                 shape : RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20) 
                     ),  
-                elevation: 50,
+                elevation: 30,
           
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
