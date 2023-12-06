@@ -221,7 +221,7 @@ class _WeatherAppState extends State<WeatherApp> {
           
               Align(
                 alignment : Alignment.centerLeft,
-                child: const Text("Weather Forecast",
+                child: const Text("Hourly Forecast",
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold
@@ -231,42 +231,29 @@ class _WeatherAppState extends State<WeatherApp> {
           
               const SizedBox(height: 14,),
           
-          
+                    
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
                     
-                    HourlyForecastWidget(
-                      time: "12:00",
-                      icon: Icons.wb_sunny_rounded,
-                      temperature: "17 °F",
-                    ),
-                    
-                    HourlyForecastWidget(
-                      time: "12:00",
-                      icon: Icons.wb_sunny_rounded,
-                      temperature: "17 °F",
-                    ),
-          
-                    HourlyForecastWidget(
-                      time: "12:00",
-                      icon: Icons.wb_sunny_rounded,
-                      temperature: "17 °F",                    
-                    ),
-                    
-                    HourlyForecastWidget(
-                      time: "12:00",
-                      icon: Icons.wb_sunny_rounded,
-                      temperature: "17 °F",                    
-                    ),
-                    
-                    HourlyForecastWidget(
-                      time: "12:00",
-                      icon: Icons.wb_sunny_rounded,
-                      temperature: "17 °F",                    
-                    ),
-                                
+
+                    for(int i=1;i<=5;i++)
+                      HourlyForecastWidget(
+                        time: data['list'][i]['dt'].toString(),
+                        // dt : 1701874800 // This represents mili seconds since Jan 1,1970
+/*                            (currSky == "Clouds") ? 
+                            Icons.cloud : (currSky == "Rain" ? Icons.water : Icons.sunny),
+*/
+                        icon: 
+                          data['list'][i]['weather'][0]['main'] == "Clouds" 
+                          ? Icons.cloud 
+                          : (   data['list'][i]['weather'][0]['main'] == "Rain" 
+                                ? Icons.water 
+                                : Icons.wb_sunny_rounded
+                            ),
+                        temperature: "${data['list'][i]['main']['temp']} K",
+                      ),        
                   ],
                 ),
               ),
