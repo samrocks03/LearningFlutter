@@ -72,6 +72,7 @@ class _WeatherAppState extends State<WeatherApp> {
   - Thus Future must return <String,dynamic>
   - making our return Future<Map<String,dynamic>> 
  */
+    late Future<Map<String,dynamic>> weather;
     Future<Map<String,dynamic>> getCurrWeather() async{
       // Wrap it in try-catch block
       try{
@@ -100,14 +101,14 @@ class _WeatherAppState extends State<WeatherApp> {
     String conv(double K) {
       return "${(K - 273.15).toStringAsPrecision(2)} °F";
     }
-/*
+
 // Temporary commented out
   @override
   void initState() {
     super.initState();
-    getCurrWeather();
+    weather = getCurrWeather();
   }
-*/
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -126,7 +127,11 @@ class _WeatherAppState extends State<WeatherApp> {
           actions: [
             // ignore: prefer_const_constructors
             IconButton(
-              onPressed: (){},
+              onPressed: (){
+                setState(() {
+                  weather = getCurrWeather();
+                });
+              },
               icon: const Icon(Icons.refresh_sharp)
             )
           ]
