@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:weather_apk/additional_inf_card.dart';
 import 'package:weather_apk/hourly_forecast_card.dart';
 import 'package:http/http.dart' as http;
@@ -74,7 +75,7 @@ class _WeatherAppState extends State<WeatherApp> {
     Future<Map<String,dynamic>> getCurrWeather() async{
       // Wrap it in try-catch block
       try{
-        final String cityName = "London,uk";
+        final String cityName = "pune";
         final res = await http.get(
               Uri.parse("https://api.openweathermap.org/data/2.5/forecast?q=$cityName&APPID=$apiKey")
             );
@@ -96,6 +97,9 @@ class _WeatherAppState extends State<WeatherApp> {
       }
     }
 
+    String conv(double K) {
+      return "${(K - 273.15).toStringAsPrecision(2)} °F";
+    }
 /*
 // Temporary commented out
   @override
@@ -111,7 +115,7 @@ class _WeatherAppState extends State<WeatherApp> {
         // foregroundColor: Color.fromARGB(170, 170, 251, 249),
         // elevation : 10,
         title:
-              const Text("Weather Detector",
+              const Text("Weather Detector Pune",
                   style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,              
@@ -147,7 +151,7 @@ class _WeatherAppState extends State<WeatherApp> {
             final data = snapshot.data;
 
             final currWeatherInfo = data!['list'][0];
-            final currTemp = currWeatherInfo['main']['temp'];
+            final currTemp = conv(currWeatherInfo['main']['temp']);
             final currSky = currWeatherInfo['weather'][0]['main'];
 
             final currPressure = currWeatherInfo['main']['pressure'];
@@ -183,7 +187,7 @@ class _WeatherAppState extends State<WeatherApp> {
                       padding: EdgeInsets.all(16.0),
                       child: Column(
                         children: [
-                          Text("$currTemp K",
+                          Text(currTemp,
                             style: TextStyle(
                               fontSize: 32,
                               fontWeight: FontWeight.bold,
@@ -231,7 +235,7 @@ class _WeatherAppState extends State<WeatherApp> {
           
               const SizedBox(height: 14,),
           
-                    
+/*                    
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -257,7 +261,38 @@ class _WeatherAppState extends State<WeatherApp> {
                   ],
                 ),
               ),
+*/
+/*Instead of loading all 4-5 widgets on screen, we will use listview.builder,
+ if we load all 4-5 widgets on screen, it will affect the performance of app */
           
+              SizedBox(
+                height: 120,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 5,
+                  itemBuilder: (context,index){
+                    // final hourlyForecast = data['list'][index]['dt'].toString();
+                    
+                    final hf = data['list'][index+1];
+                    final hourlyForecast = hf['dt_txt'];
+
+
+                    final time = DateTime.parse(hourlyForecast);
+                    final tempHourly = conv(hf['main']['temp']);//"${hf['main']['temp']}";
+                    final ico = hf['weather'][0]['main'] == "Clouds" 
+                                ? Icons.cloud 
+                                : (data['list'][index]['weather'][0]['main'] == "Rain" 
+                                ? Icons.water 
+                                : Icons.wb_sunny_rounded);
+                          
+              
+                    return HourlyForecastWidget(
+                      time: DateFormat.Hm().format(time),
+                      icon: ico, 
+                      temperature: tempHourly);
+                  },
+                  ),
+              ),
               SizedBox(height: 40,),
           
           
