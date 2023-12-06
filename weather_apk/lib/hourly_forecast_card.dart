@@ -27,10 +27,11 @@ class HourlyForecastWidget extends StatelessWidget {
             padding: EdgeInsets.all(4.0),
             child: Column(
               children: [
-                Text(time,
+                Text(
+                  time,
                   style: TextStyle(
                     fontSize: 14,
-                  )
+                    )
                 ),
             
                 SizedBox(height: 5),

@@ -11,25 +11,27 @@ import 'package:http/http.dart' as http;
 import 'package:weather_apk/secrets.dart';
 
 class WeatherApp extends StatefulWidget {
-
-
-  const WeatherApp({super.key});
-  @override
-  State<WeatherApp> createState() => _WeatherAppState();
+    const WeatherApp({super.key});
+    @override
+    State<WeatherApp> createState() => _WeatherAppState();
 }
+
 
 class _WeatherAppState extends State<WeatherApp> {
 
-
     Future<Map<String,dynamic>> getCurrWeather() async{
+      // Wrap it in try-catch block
       try{
-        final String cityName = "London";
+        final String cityName = "London,uk";
         final res = await http.get(
-          Uri.parse("https://api.openweathermap.org/data/2.5/forecast?q=$cityName,uk&APPID=$apiKey")
-        );
+              Uri.parse("https://api.openweathermap.org/data/2.5/forecast?q=$cityName&APPID=$apiKey")
+            );
+        // Uri : Uniform resource identifier
         // debugPrint(res.body);
         final data = jsonDecode(res.body);
 
+        // uncomment this, if you dont want the string notation ex. "200"
+        // if(data['cod'] != 200.toString()){
         if(data['cod'] != "200"){
             throw data["message"];
         }
@@ -37,16 +39,19 @@ class _WeatherAppState extends State<WeatherApp> {
           // temp = data['list'][0]['main']['temp'];
       }
       catch(e){
-        throw e.toString();
+        // throw the error, if some error is recieved
+          throw "        $e";
       }
-  }
+    }
 
-
+/*
+// Temporary commented out
   @override
   void initState() {
     super.initState();
     getCurrWeather();
   }
+*/
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -78,8 +83,7 @@ class _WeatherAppState extends State<WeatherApp> {
           builder: (context,snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting){
               return const Center(
-                child: CircularProgressIndicator.adaptive(
-                ),
+                child: CircularProgressIndicator.adaptive(),
               );
             }
 
@@ -97,6 +101,7 @@ class _WeatherAppState extends State<WeatherApp> {
             final currHumidity = currWeatherInfo['main']['humidity'];
 
             final windSpeed = currWeatherInfo['wind']['speed'];
+
             // print(currSky);
             // final currWeatherTemp = data![]
             return Padding(
@@ -245,7 +250,6 @@ class _WeatherAppState extends State<WeatherApp> {
                         icon: Icons.beach_access_rounded,
                         weather_type: "Pressure",
                         value: "$currPressure",
-          
                       ),                    
                   ],
               )
