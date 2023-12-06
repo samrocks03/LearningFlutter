@@ -30,6 +30,47 @@ class _WeatherAppState extends State<WeatherApp> {
 
 // Since, we have to pass the value of this function into FutureBuilder, hence set the return type to .... 
 // Future<Map<String,dynamic>> ?future
+
+
+/*
+{
+  "cod": "200",
+  "message": 0,
+  "cnt": 40,
+  "list": [
+    {
+      "dt": 1701864000,
+      "main": {
+        "temp": 277.43,
+        "feels_like": 277.43,
+        "temp_min": 277.43,
+        "temp_max": 277.96,
+        "pressure": 1017,
+        "sea_level": 1017,
+        "grnd_level": 1015,
+        "humidity": 87,
+        "temp_kf": -0.53
+      },
+      "weather": [
+        {
+          "id": 801,
+          "main": "Clouds",
+          "description": "few clouds",
+          "icon": "02d"
+        }
+    .
+    .
+    .
+    .
+  }
+
+  The data somewhat looks like this!
+  representing a map with key at one side, value at other
+
+  - key is string , and value is sometimes string and other times int i.e value is dynamic
+  - Thus Future must return <String,dynamic>
+  - making our return Future<Map<String,dynamic>> 
+ */
     Future<Map<String,dynamic>> getCurrWeather() async{
       // Wrap it in try-catch block
       try{
