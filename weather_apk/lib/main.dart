@@ -12,9 +12,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
     return MaterialApp(
-      title: 'Weather App',
+      // title: 'Weather App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(useMaterial3: true).copyWith(),
+      theme: ThemeData.light(useMaterial3: true).copyWith(),
       // theme: ThemeData.light(useMaterial3: true).copyWith(),
       home : const WeatherApp(),
       // home: const MyHomePage(title: 'Weather App'),

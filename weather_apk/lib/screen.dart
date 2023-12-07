@@ -77,7 +77,7 @@ class _WeatherAppState extends State<WeatherApp> {
     Future<Map<String,dynamic>> getCurrWeather() async{
       // Wrap it in try-catch block
       try{
-        final String cityName = "pune";
+        final String cityName = "solapur";
         final res = await http.get(
               Uri.parse("https://api.openweathermap.org/data/2.5/forecast?q=$cityName&APPID=$apiKey")
             );
@@ -117,7 +117,7 @@ class _WeatherAppState extends State<WeatherApp> {
         // foregroundColor: Color.fromARGB(170, 170, 251, 249),
         // elevation : 10,
         title:
-              const Text("Weather Detector",
+              const Text("Weather App",
                   style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,              
