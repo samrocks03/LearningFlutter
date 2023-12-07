@@ -73,6 +73,7 @@ class _WeatherAppState extends State<WeatherApp> {
   - making our return Future<Map<String,dynamic>> 
  */
     late Future<Map<String,dynamic>> weather;
+
     Future<Map<String,dynamic>> getCurrWeather() async{
       // Wrap it in try-catch block
       try{
@@ -116,7 +117,7 @@ class _WeatherAppState extends State<WeatherApp> {
         // foregroundColor: Color.fromARGB(170, 170, 251, 249),
         // elevation : 10,
         title:
-              const Text("Weather Detector Pune",
+              const Text("Weather Detector",
                   style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,              
@@ -132,7 +133,7 @@ class _WeatherAppState extends State<WeatherApp> {
                   weather = getCurrWeather();
                 });
               },
-              icon: const Icon(Icons.refresh_sharp)
+              icon: const Icon(Icons.refresh_rounded)
             )
           ]
       ),
