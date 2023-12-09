@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shop_app/home_page.dart';
 
 void main() {
@@ -13,7 +14,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.fallback(useMaterial3: true),
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromRGBO(254, 206, 1, 1)),
+        inputDecorationTheme: InputDecorationTheme(
+        hintStyle: GoogleFonts.abhayaLibre(
+          fontSize: 15
+        ) ,
+          prefixIconColor: Color.fromRGBO(119,119,119,1)
+        )
+        ),
       debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
