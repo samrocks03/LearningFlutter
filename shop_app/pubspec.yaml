@@ -77,7 +77,7 @@ flutter:
   # example:
   # fonts:
   #   - family: Schyler
-  #     fonts:
+      # fonts:
   #       - asset: fonts/Schyler-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
