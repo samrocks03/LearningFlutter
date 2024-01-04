@@ -36,4 +36,40 @@ final products = [
     'company': 'Nike',
     'sizes': [8, 9, 10],
   },
+  // {
+  //   'id': '4',
+  //   'title': 'Adidas Running Shoes',
+  //   'price': 35.99,
+  //   'imageUrl': 'assets/images/shoes_5.png',
+  //   'company': 'Adidas',
+  //   'sizes': [8, 9, 11],
+  // },
+  // {
+  //   'id': '5',
+  //   'title': 'Nike Air Max',
+  //   'price': 79.99,
+  //   'imageUrl': 'assets/images/shoes_6.jpg',
+  //   'company': 'Nike',
+  //   'sizes': [7, 8, 9],
+  // },
+  // {
+  //   'id': '6',
+  //   'title': 'Bata Casual Shoes',
+  //   'price': 25.50,
+  //   'imageUrl': 'assets/images/shoes_7.jpg',
+  //   'company': 'Bata',
+  //   'sizes': [7, 8, 9],
+  // },
+];
+
+
+final cart = [
+  {
+    'id': '3',
+    'title': 'Jordan Shoes',
+    'price': 420.69,
+    'imageUrl': 'assets/images/shoes_4.png',
+    'company': 'Nike',
+    'sizes': [8, 9, 10],
+  }  
 ];

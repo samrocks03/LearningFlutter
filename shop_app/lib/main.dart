@@ -21,13 +21,21 @@ class MyApp extends StatelessWidget {
           secondary: Color.fromRGBO(245, 247, 249, 1),
           seedColor: Color.fromRGBO(254, 206, 1, 1)
         ),
-          inputDecorationTheme: InputDecorationTheme(
-            hintStyle: GoogleFonts.abhayaLibre(
+
+        inputDecorationTheme: InputDecorationTheme(
+          hintStyle: GoogleFonts.abhayaLibre(
             fontSize: 15
-            ) ,
+          ),
           prefixIconColor: Color.fromRGBO(119,119,119,1)
-        )
         ),
+
+        textTheme: TextTheme(
+          titleMedium: GoogleFonts.aBeeZee(
+            fontWeight: FontWeight.bold,
+            fontSize: 20
+          )
+        )
+      ),
       debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
