@@ -37,7 +37,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[currentPage],
+      body: IndexedStack(
+        index: currentPage,
+        children: pages,
+        //children should always be at last in the widget
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex : currentPage,
         onTap: (value){
