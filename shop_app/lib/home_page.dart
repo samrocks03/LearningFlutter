@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shop_app/global_variables.dart';
 import 'package:shop_app/product_card.dart';
+import 'package:shop_app/product_details_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,6 +18,7 @@ class _HomePageState extends State<HomePage> {
   // so, make the 👇 late
   //   
   late String filterSelector;
+  int currentPage = 1;
 
   @override
   void initState() {
@@ -44,11 +47,7 @@ class _HomePageState extends State<HomePage> {
                   child: Text(
                     "Shoes\nCollection",
                     style: GoogleFonts.aBeeZee(
-                      textStyle: TextStyle(
-                          color: Colors.blue.shade900,
-                          letterSpacing: .3,
-                          fontSize: 30,
-                          fontWeight: FontWeight.w900),
+                      textStyle: Theme.of(context).textTheme.titleLarge,
                     ),
                   ),
                 ),
@@ -121,13 +120,24 @@ class _HomePageState extends State<HomePage> {
                 itemCount: products.length,
                 itemBuilder: (context,index){
                   final product = products[index];
-                  return ProductCard(
-                    title: product['title'] as String,
-                    price: product['price'] as double,
-                    image: product['imageUrl'].toString(),
-                    bgColor: index.isEven 
-                                ? Color.fromRGBO(216, 240, 253, 1) 
-                                : Color.fromRGBO(245, 247, 249, 1),
+                  return GestureDetector(
+                    onTap: (){
+                      Navigator.of(context).push(
+                        CupertinoPageRoute(
+                          builder: (context){
+                            return ProductDetailsPage(product: product);
+                          }
+                        )
+                      );
+                    },
+                    child: ProductCard(
+                      title: product['title'] as String,
+                      price: product['price'] as double,
+                      image: product['imageUrl'].toString(),
+                      bgColor: index.isEven 
+                                  ? Color.fromRGBO(216, 240, 253, 1) 
+                                  : Colors.black12,
+                    ),
                   );
                 }),
             )
@@ -135,6 +145,27 @@ class _HomePageState extends State<HomePage> {
           ],
           
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex : currentPage,
+        onTap: (value){
+          setState(() {
+            currentPage = value;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            label: '',
+            icon: Icon(Icons.home_outlined)
+          ),
+
+          BottomNavigationBarItem(
+            label: '',
+            icon: Icon(Icons.shopping_cart_outlined)
+          ),
+
+
+        ],
       ),
     );
   }

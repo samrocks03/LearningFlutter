@@ -11,6 +11,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,11 +30,35 @@ class MyApp extends StatelessWidget {
           prefixIconColor: Color.fromRGBO(119,119,119,1)
         ),
 
+        appBarTheme: AppBarTheme(
+          titleTextStyle: GoogleFonts.aBeeZee(
+            fontSize: 25,
+            color: Colors.black
+          )
+        ),
+
         textTheme: TextTheme(
           titleMedium: GoogleFonts.aBeeZee(
             fontWeight: FontWeight.bold,
             fontSize: 20
-          )
+          ),
+
+          bodyMedium:GoogleFonts.aBeeZee(
+            fontWeight: FontWeight.bold,
+            fontSize: 24
+          ),
+
+          titleLarge: GoogleFonts.aBeeZee(
+                textStyle: TextStyle(
+                    color: Colors.blue.shade900,
+                    letterSpacing: .3,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w900),
+              ),          
+        ),
+
+        iconTheme: IconThemeData(
+          size: 19.0
         )
       ),
       debugShowCheckedModeBanner: false,
