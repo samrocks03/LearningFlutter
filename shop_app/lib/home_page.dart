@@ -1,7 +1,8 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import, unnecessary_import
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shop_app/cart_page.dart';
 import 'package:shop_app/global_variables.dart';
 import 'package:shop_app/product_card.dart';
 import 'package:shop_app/product_details_page.dart';
@@ -19,7 +20,12 @@ class _HomePageState extends State<HomePage> {
   // so, make the 👇 late
   //   
   late String filterSelector;
-  int currentPage = 1;
+  int currentPage = 0;
+
+  List<Widget> pages = [
+    ProductList(),
+    CartPage()
+  ];
 
   @override
   void initState() {
@@ -31,7 +37,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ProductList(),
+      body: pages[currentPage],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex : currentPage,
         onTap: (value){
