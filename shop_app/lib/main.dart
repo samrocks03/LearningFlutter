@@ -5,8 +5,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_app/cart_provider.dart';
-import 'package:shop_app/home_page.dart';
+import 'package:shop_app/providers/cart_provider.dart';
+import 'package:shop_app/pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,6 +21,11 @@ void main() {
  *  - Future Provider               --> 
  *  - Stream Provider
  *                                    Future and Stream provider help in doing lazy loaders task
+ * 
+ * Info about short Hand notation:
+ *  context.read() cannot be called in build function
+ *  context.watch() cannot be called outside build function
+ * 
  */
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
