@@ -2,6 +2,8 @@
 // product_details_page.dart
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shop_app/cart_provider.dart';
 
 
 class ProductDetailsPage extends StatefulWidget {
@@ -16,21 +18,52 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
 
   // late String val;
   final List<int> sizeOfShoes = [8,9,10,11,12,13]; 
-  late int selector;
+  late int selector = 0;
 
   
   @override
   void initState() {
     super.initState();
-    selector = sizeOfShoes[0];
+    selector = 0;
   }
 
+  // this is onTap function for "Add to Cart Functionality"
+  // the State<T> class gives us access to the `context` accessed in the onTap() func
+  void onTap(){
+    if(selector != 0){
+      Provider.of<CartProvider>(context,listen: false)
+        .addProduct({
+          'id': widget.product['id'],
+          'title': widget.product['title'],
+          'price': widget.product['price'],
+          'imageUrl': widget.product['imageUrl'],
+          'company': widget.product['company'],
+          "size": selector,
+        });
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Product of size $selector added successfully!',
+          style: TextStyle(fontSize: 11),),
+        ),
+      );
+
+    }else{
+      ScaffoldMessenger
+        .of(context)
+        .showSnackBar(
+          SnackBar(
+            content: Text("Please Select Size!!",
+          style: TextStyle(fontSize: 11)) 
+          )
+        );
+    }    
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Details")
+        title: Text("Details",style: TextStyle(color: Colors.blue.shade900),)
       ),
 
       body: Column(
@@ -87,7 +120,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: ElevatedButton(
-                  onPressed: (){},
+                  onPressed: onTap,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Theme.of(context).primaryColor,
                     minimumSize: Size(double.infinity, 50)
