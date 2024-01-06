@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import, unnecessary_import
+// home_page.dart
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -43,6 +44,9 @@ class _HomePageState extends State<HomePage> {
         //children should always be at last in the widget
       ),
       bottomNavigationBar: BottomNavigationBar(
+        iconSize: 30,
+        selectedFontSize: 0,
+        unselectedFontSize: 0,
         currentIndex : currentPage,
         onTap: (value){
           setState(() {
@@ -52,12 +56,12 @@ class _HomePageState extends State<HomePage> {
         items: [
           BottomNavigationBarItem(
             label: '',
-            icon: Icon(Icons.home_outlined)
+            icon: Icon(Icons.home)
           ),
 
           BottomNavigationBarItem(
             label: '',
-            icon: Icon(Icons.shopping_cart_outlined)
+            icon: Icon(Icons.shopping_cart)
           ),
 
 
