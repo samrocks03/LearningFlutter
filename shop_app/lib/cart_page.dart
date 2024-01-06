@@ -48,7 +48,11 @@ class CartPage extends StatelessWidget {
                       actions: [
                         TextButton(
                           onPressed: (){
-                            Provider.of<CartProvider>(context,listen: false).removeProduct(cartItem);
+                            context
+                              .read<CartProvider>()
+                              .removeProduct(cartItem);
+                            
+                            // Provider.of<CartProvider>(context,listen: false).removeProduct(cartItem);
                             Navigator.of(context).pop();
 
                             // here, can use `Navigator.pop() instead of
