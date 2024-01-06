@@ -1,5 +1,4 @@
 // global_variables.dart
-import 'package:flutter/material.dart';
 
 
 // This list will contain map of String:Dynamic type
@@ -37,16 +36,4 @@ final products = [
     'company': 'Nike',
     'sizes': [8, 9, 10],
   }
-];
-
-
-final cart = [
-  {
-    'id': '3',
-    'title': 'Jordan Shoes',
-    'price': 420.69,
-    'imageUrl': 'assets/images/shoes_4.png',
-    'company': 'Nike',
-    "size": 8,
-  },
 ];
