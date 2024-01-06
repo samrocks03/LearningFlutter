@@ -2,15 +2,16 @@
 // cart_page.dart
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_app/global_variables.dart';
+import 'package:shop_app/cart_provider.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    print(Provider.of<String>(context));
+    final cart = Provider.of<CartProvider>(context).cart;
     return Scaffold(
       appBar: AppBar(
         title: Center(child: Text('Cart')),
@@ -28,7 +29,57 @@ class CartPage extends StatelessWidget {
             
 
             trailing: IconButton(
-              onPressed: (){},
+              onPressed: (){
+                showDialog(
+                  context: context,
+                  builder: (context){
+                    return AlertDialog(
+                      title: Text(
+                        "Delete Item",
+                        style: Theme.of(context).textTheme.titleMedium
+                      ),
+
+                      content: Text(
+                        "Are you sure, you want to delete this item?",
+                      style: Theme.of(context).textTheme.bodySmall
+                      ),
+
+                      actions: [
+                        TextButton(
+                          onPressed: (){
+                            Provider.of<CartProvider>(context,listen: false).removeProduct(cartItem);
+                            Navigator.of(context).pop();
+
+                            // here, can use `Navigator.pop() instead of
+                            //Navigator.of(context).pop(); 
+
+                            // since we don't have nested Navigators, hence will achieve same result
+                          }, 
+                          child: Text("Yes",
+                            style: GoogleFonts.zeyada(
+                              color: Colors.red.shade900,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25
+                            ),
+                          )
+                        ),
+
+                        TextButton(
+                          onPressed: (){
+                            Navigator.of(context).pop();
+                          }, 
+                          child: Text("No",
+                            style: GoogleFonts.zeyada(
+                              color: Colors.green.shade900,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25
+                            ),
+                          )
+                        ),
+                      ],
+                    );
+                  });
+              },
               icon: Icon(
                 Icons.delete_sweep_sharp,
                 color: Colors.red.shade700,
