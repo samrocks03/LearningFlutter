@@ -1,3 +1,4 @@
+// global_variables.dart
 import 'package:flutter/material.dart';
 
 
@@ -46,6 +47,6 @@ final cart = [
     'price': 420.69,
     'imageUrl': 'assets/images/shoes_4.png',
     'company': 'Nike',
-    'sizes': [8, 9, 10],
-  }  
+    "size": 8,
+  },
 ];

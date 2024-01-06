@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors
+// product_details_page.dart
 
 import 'package:flutter/material.dart';
 
